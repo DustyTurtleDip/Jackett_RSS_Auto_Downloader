@@ -4,12 +4,10 @@ Simple powershell script to automate downloading torrent files from jackett RSS 
 
 Simply fill the following parameters at the begining of the script :
 
-########################SET YOUR PARAMETERS###############################
-$DownloadPath = "\\ServerNameOrIP\Folder\FileName.torrent"
-$JackettRSSFeed = "Your Jackett RSS feed URL"
-$CheckInterval = "60" #IN SECONDS
-$DownloadVolumeFactor = "0" # FREELEECH 0 | HALF 0.5 | FULL 1
-########################SET YOUR PARAMETERS###############################
+* $DownloadPath = "\\ServerNameOrIP\Folder\FileName.torrent"
+* $JackettRSSFeed = "Your Jackett RSS feed URL"
+* $CheckInterval = "60" #IN SECONDS
+* $DownloadVolumeFactor = "0" # FREELEECH 0 | HALF 0.5 | FULL 1
 
 ## Screenshots
 
