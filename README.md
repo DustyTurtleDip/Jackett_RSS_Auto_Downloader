@@ -10,3 +10,7 @@ $JackettRSSFeed = "Your Jackett RSS feed URL"
 $CheckInterval = "60" #IN SECONDS
 $DownloadVolumeFactor = "0" # FREELEECH 0 | HALF 0.5 | FULL 1
 ########################SET YOUR PARAMETERS###############################
+
+## Screenshots
+
+![screenshot](https://github.com/max01986/Jackett_RSS_Auto_Downloader/blob/master/2020-05-16_14h24_48.png?raw=true)
