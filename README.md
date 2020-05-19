@@ -1,6 +1,7 @@
 # Jackett_RSS_Auto_Downloader
 Simple powershell script to automate downloading torrent files from jackett RSS feed based on DownloadVolumeFactor
 
+RUN POWERSHELL AS ADMIN
 
 Simply fill the following parameters at the begining of the script :
 
