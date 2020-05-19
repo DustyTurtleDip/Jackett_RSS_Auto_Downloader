@@ -5,13 +5,15 @@ $CheckInterval = "60" #IN SECONDS
 $DownloadVolumeFactor = "0" # FREELEECH 0 | HALF 0.5 | FULL 1
 ########################SET YOUR PARAMETERS###############################
 
+Try{
+
 #PREPARE LOGGING
 if (Get-Module -ListAvailable -Name PSFramework) {
     Write-Host "Module exists"
 } 
 else 
 {
-try{install-module PSFramework}catch{"ERROR installing PSFramework : $_" | Add-Content $ErrorLog}
+install-module PSFramework
 }
 $ErrorLog = "$env:ProgramData\Jackett_RSS\errors.log"
 $logFile = Join-Path -path "$env:ProgramData\Jackett_RSS\" -ChildPath "log-$(Get-date -f 'yyyy-MM-dd-HH-mm-ss').log";
@@ -21,7 +23,7 @@ Write-PSFMessage -Level Verbose -Message "Check interval is set to : $checkInter
 #CREATE DIRECTORY IN PROGRAMDATA IF IT DOESN'T EXIST
 $WorkingDirectory = Test-Path $env:ProgramData\Jackett_RSS
 Write-PSFMessage -Level Verbose -Message "%PROGRAMDATA%\Jackett_RSS EXIST: $WorkingDirectory"
-Try{if ($WorkingDirectory -match "False") {Write-PSFMessage -Level Verbose -Message New-Item -path $env:ProgramData -Name Jackett_RSS -ItemType directory} else {Write-PSFMessage -Level Verbose -Message "%programdata%\Jackett_RSS folder already exist"}}catch{{"ERROR creating folder : $_" | Add-Content $ErrorLog}}
+if ($WorkingDirectory -match "False") {Write-PSFMessage -Level Verbose -Message New-Item -path $env:ProgramData -Name Jackett_RSS -ItemType directory} else {Write-PSFMessage -Level Verbose -Message "%programdata%\Jackett_RSS folder already exist"}
 
 #CLEAR VARIABLE BEFORE STARTING SCRIPT
 $LastAdded = ""
@@ -29,6 +31,7 @@ $movie = ""
 
 #CLEAN THE SCRIPT PANEL
 cls
+}catch{{"ERROR : $_" | Add-Content $ErrorLog}}
 
 #START INFINITE LOOP
 while ($true)
@@ -71,9 +74,10 @@ foreach ($item in $feed.item.GetValue(0))
         {
         Write-PSFMessage -Level Verbose -Message $item.Title
         Write-PSFMessage -Level Verbose -Message "Does not match your parameter for DownloadVolumeFactor : $downloadvolumefactor"
+        
         }
     }
 #WAIT XX SECONDS BEFORE CHECKING AGAIN
 Start-Sleep -Seconds $CheckInterval
-}catch{"ERROR : $_" | Add-Content $ErrorLog}
+}catch{{"ERROR : $_" | Add-Content $ErrorLog}}
 }
