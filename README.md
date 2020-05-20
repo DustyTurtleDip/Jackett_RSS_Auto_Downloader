@@ -12,4 +12,4 @@ Simply fill the following parameters at the begining of the script :
 
 ## Screenshots
 
-![screenshot](https://github.com/max01986/Jackett_RSS_Auto_Downloader/blob/master/Screenshot.png?raw=true)
+![screenshot](https://github.com/max01986/Jackett_RSS_Auto_Downloader/blob/master/2020-05-20_13h23_03.png?raw=true)
