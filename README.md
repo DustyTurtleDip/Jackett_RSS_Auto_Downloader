@@ -1,5 +1,11 @@
 # Jackett_RSS_Auto_Downloader
+
 Simple powershell script to automate downloading torrent files from jackett RSS feed based on DownloadVolumeFactor (FREELEECH)
+
+This script will :
+* Download freeleech torrent file from Jackett to a specified path
+You will need : 
+* A torrent client that is monitoring this folder and auto add the torrent file to the client.
 
 RUN POWERSHELL AS ADMIN
 
